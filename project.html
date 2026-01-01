@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileHarbor - My Drive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+    <div class="flex h-screen">
+        <aside class="w-64 bg-gray-800 border-r border-gray-700 flex flex-col">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-blue-400 flex items-center">
+                    <i class="fas fa- anchor mr-2"></i> FileHarbor
+                </h1>
+            </div>
+            <nav class="flex-1 px-4 space-y-2">
+                <a href="#" class="flex items-center p-3 bg-gray-700 rounded-lg text-white">
+                    <i class="fas fa-hdd mr-3"></i> My Drive
+                </a>
+                <a href="document" class="flex items-center p-3 hover:bg-gray-700 rounded-lg transition">
+                    <i class="fas fa-file-alt mr-3 text-gray-400"></i> Documents
+                </a>
+                <a href="images" class="flex items-center p-3 hover:bg-gray-700 rounded-lg transition">
+                    <i class="fas fa-image mr-3 text-gray-400"></i> Photos
+                </a>
+                <a href="video" class="flex items-center p-3 hover:bg-gray-700 rounded-lg transition">
+                    <i class="fas fa-video mr-3 text-gray-400"></i> Videos
+                </a>
+            </nav>
+            <div class="p-6 border-t border-gray-700">
+                <p class="text-xs text-gray-400 mb-2">Storage Used: 1.2TB / 5TB</p>
+                <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-blue-500 h-2 rounded-full" style="width: 24%"></div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="flex-1 flex flex-col">
+            <header class="h-16 bg-gray-800 border-b border-gray-700 flex items-center justify-between px-8">
+                <div class="relative w-96">
+                    <input type="text" placeholder="Search files..." class="w-full bg-gray-700 border-none rounded-full py-2 px-10 focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-medium transition">
+                        <i class="fas fa-upload mr-2"></i> Upload File
+                    </button>
+                    <div class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </header>
+
+            <section class="p-8 overflow-y-auto">
+                <h2 class="text-xl font-semibold mb-6">Recent Folders</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                    <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-blue-500 transition cursor-pointer">
+                        <i class="fas fa-folder text-yellow-500 text-4xl mb-3"></i>
+                        <p class="font-medium">Projects</p>
+                        <p class="text-sm text-gray-400">12 Files</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-blue-500 transition cursor-pointer">
+                        <i class="fas fa-folder text-yellow-500 text-4xl mb-3"></i>
+                        <p class="font-medium">Travel_Photos</p>
+                        <p class="text-sm text-gray-400">45 Files</p>
+                    </div>
+                </div>
+
+                <h2 class="text-xl font-semibold mb-6">Files</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-blue-500 transition cursor-pointer">
+                        <i class="fas fa-file-pdf text-red-500 text-4xl mb-3"></i>
+                        <p class="font-medium truncate">Project_Outline.pdf</p>
+                        <p class="text-sm text-gray-400">2.4 MB</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-blue-500 transition cursor-pointer">
+                        <i class="fas fa-video text-purple-500 text-4xl mb-3"></i>
+                        <p class="font-medium truncate">Vacation_Video.mp4</p>
+                        <p class="text-sm text-gray-400">124 MB</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
