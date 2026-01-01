@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12-Month C++ Game Engine Project</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    /* Reset and body */
+    * {box-sizing: border-box; margin: 0; padding: 0;}
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-image: url("image.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        min-height: 100vh;
+    }
+    .container {
+        max-width: 950px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        overflow: hidden;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2em;
+        color: #00ffd5;
+        text-shadow: 2px 2px 5px #000;
+    }
+    details {
+        margin-bottom: 15px;
+        border-left: 4px solid #00ffd5;
+        padding-left: 15px;
+        border-radius: 8px;
+        background-color: rgba(255,255,255,0.05);
+        transition: all 0.3s ease;
+    }
+    summary {
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        color: #00ffd5;
+        padding: 10px;
+        transition: color 0.3s ease;
+    }
+    summary:hover { color: #1affff; }
+    ul { margin-top: 5px; margin-bottom: 10px; padding-left: 20px; transition: all 0.3s ease; }
+    li { margin-bottom: 5px; }
+    details[open] ul { animation: fadeSlideDown 0.5s ease forwards; }
+    @keyframes fadeSlideDown { 0% {opacity: 0; transform: translateY(-10px);} 100% {opacity: 1; transform: translateY(0);} }
+    /* Responsive */
+    @media (max-width: 768px) {
+        .container { padding: 20px; }
+        h1 { font-size: 1.5em; }
+        summary { font-size: 1em; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>12-Month C++ Game Engine Project – Weekly Breakdown</h1>
+
+<!-- Function to generate months and weeks -->
+<script>
+const months = [
+{
+title: "Month 1 — Fundamentals (Weeks 1–4)",
+weeks: [
+{title:"Week 1 — Setup and Hello Window", tasks:["Install compiler + IDE (VS Code / CLion)","Install SFML or SDL","Run a 'Hello World' console program","Open a blank window using SFML/SDL"]},
+{title:"Week 2 — Refresh Core C++ Skills", tasks:["Review OOP concepts: classes, inheritance, encapsulation","Practice smart pointers and memory management","Initialize GitHub repository for project"]},
+{title:"Week 3 — RAII & Build System", tasks:["Learn RAII patterns in C++","Set up CMake for project compilation","Organize folder structure for engine"]},
+{title:"Week 4 — Core Game Loop Setup", tasks:["Build FPS counter","Implement delta-time calculation","Handle window close event gracefully"]}
+]
+},
+{
+title: "Month 2 — Core Architecture (Weeks 5–8)",
+weeks: [
+{title:"Week 5 — Engine Class & Game Loop", tasks:["Create Engine class skeleton","Implement main game loop: update, render, events"]},
+{title:"Week 6 — Logging System", tasks:["Create a logging system for debugging","Add debug mode toggles"]},
+{title:"Week 7 — Configuration Loader", tasks:["Implement JSON/TOML loader","Load engine settings dynamically"]},
+{title:"Week 8 — Refactor & Organize", tasks:["Clean project folder structure","Refactor engine core for maintainability"]}
+]
+},
+{
+title: "Month 3 — Rendering I (Weeks 9–12)",
+weeks: [
+{title:"Week 9 — Texture Management", tasks:["Create TextureManager class","Load and store textures efficiently"]},
+{title:"Week 10 — Sprite Rendering & Shapes", tasks:["Render sprites at positions","Draw primitives: rectangles, lines, circles"]},
+{title:"Week 11 — Camera System (Basic)", tasks:["Implement camera class","Allow camera movement with input"]},
+{title:"Week 12 — Camera Enhancements", tasks:["Add camera zoom","Camera follow feature for player"]}
+]
+},
+{
+title: "Month 4 — Input System (Weeks 13–16)",
+weeks: [
+{title:"Week 13 — Keyboard Input", tasks:["Capture key presses and states","Map keys to actions"]},
+{title:"Week 14 — Key Mapping", tasks:["Implement WASD movement","Jump/action key mapping"]},
+{title:"Week 15 — Mouse Input", tasks:["Detect mouse position and clicks","Map mouse buttons to actions"]},
+{title:"Week 16 — InputManager & Testing", tasks:["Create InputManager class","Test full input system with sample scene"]}
+]
+},
+{
+title: "Month 5 — ECS (Weeks 17–20)",
+weeks: [
+{title:"Week 17 — Entity System", tasks:["Create Entity class","Assign unique IDs"]},
+{title:"Week 18 — Components", tasks:["Create Component base class","Implement TransformComponent"]},
+{title:"Week 19 — ECS Systems", tasks:["Add SpriteComponent","Implement SystemManager"]},
+{title:"Week 20 — ECS Demo", tasks:["Build a small demo scene using ECS","Move sprites with TransformComponent"]}
+]
+},
+{
+title: "Month 6 — Physics (Weeks 21–24)",
+weeks: [
+{title:"Week 21 — Basic Physics", tasks:["Add velocity + acceleration"]},
+{title:"Week 22 — Gravity & Movement", tasks:["Implement gravity system","Move objects with physics"]},
+{title:"Week 23 — Collision Detection", tasks:["Implement AABB (Axis-Aligned Bounding Box) collisions"]},
+{title:"Week 24 — Collision Response", tasks:["Stop or bounce objects after collision"]}
+]
+},
+{
+title: "Month 7 — Rendering II (Weeks 25–28)",
+weeks: [
+{title:"Week 25 — Sprite Sheet Animations", tasks:["Load sprite sheets","Animate frames per delta-time"]},
+{title:"Week 26 — Animation Controller", tasks:["Create controller to manage animations"]},
+{title:"Week 27 — Parallax Backgrounds", tasks:["Implement layered backgrounds","Add movement at different speeds"]},
+{title:"Week 28 — Smooth Camera", tasks:["Camera smoothing and boundaries"]}
+]
+},
+{
+title: "Month 8 — Scenes & Assets (Weeks 29–32)",
+weeks: [
+{title:"Week 29 — Scene Class", tasks:["Manage multiple game scenes","Add entities to scene"]},
+{title:"Week 30 — Scene Transitions", tasks:["Load/unload scenes dynamically","Transition effects"]},
+{title:"Week 31 — Asset Manager", tasks:["Manage textures, fonts, sounds","Avoid duplicate loading"]},
+{title:"Week 32 — Level Loading", tasks:["Load levels from JSON","Place entities based on file"]}
+]
+},
+{
+title: "Month 9 — Audio System (Weeks 33–36)",
+weeks: [
+{title:"Week 33 — AudioManager Setup", tasks:["Load and play sounds"]},
+{title:"Week 34 — Sound Effects", tasks:["Trigger SFX on events","Volume controls"]},
+{title:"Week 35 — Background Music", tasks:["Play looping BGM"]},
+{title:"Week 36 — Event-Based Audio", tasks:["Trigger sounds based on gameplay events"]}
+]
+},
+{
+title: "Month 10 — Tools & Editor (Weeks 37–40)",
+weeks: [
+{title:"Week 37 — Integrate ImGui", tasks:["Add GUI overlay"]},
+{title:"Week 38 — Tilemap Editor", tasks:["Draw grid","Place tiles"]},
+{title:"Week 39 — Object Placement Editor", tasks:["Drag and drop game objects","Adjust position/rotation"]},
+{title:"Week 40 — Save/Load Levels", tasks:["Save level to JSON","Load level from JSON"]}
+]
+},
+{
+title: "Month 11 — Scripting System (Weeks 41–44)",
+weeks: [
+{title:"Week 41 — Integrate Lua", tasks:["Add Lua runtime","Test simple script execution"]},
+{title:"Week 42 — Bind Engine Functions", tasks:["Expose engine APIs to Lua","Move objects, play sounds, spawn enemies"]},
+{title:"Week 43 — Gameplay Scripts", tasks:["Enemy AI scripts (patrol, attack, flee)","Event triggers (zone entry, time events)","Cutscenes (camera movement, dialogue, animations)"]},
+{title:"Week 44 — Script Debugging & Organization", tasks:["Hot-reload scripts","Add debug logging","Organize script folders"]}
+]
+},
+{
+title: "Month 12 — Final Polish & Demo Games (Weeks 45–48)",
+weeks: [
+{title:"Week 45 — Bug Fixes & Optimization", tasks:["Optimize ECS and rendering","Fix physics and input bugs"]},
+{title:"Week 46 — Demo Game 1: Platformer", tasks:["Build Mario-style platformer","Implement levels, enemies, collectibles"]},
+{title:"Week 47 — Demo Game 2: Top-Down Shooter", tasks:["Build top-down shooter","Implement shooting, AI, health system"]},
+{title:"Week 48 — Documentation & Portfolio", tasks:["Write README with engine features","Record gameplay clips or GIFs","Publish portfolio and GitHub repo"]}
+]
+}
+];
+
+const container = document.querySelector('.container');
+months.forEach(month => {
+    const monthDetails = document.createElement('details');
+    monthDetails.innerHTML = `<summary>${month.title}</summary>`;
+    month.weeks.forEach(week => {
+        const weekDetails = document.createElement('details');
+        weekDetails.innerHTML = `<summary>${week.title}</summary><ul>${week.tasks.map(task=>`<li>${task}</li>`).join('')}</ul>`;
+        monthDetails.appendChild(weekDetails);
+    });
+    container.appendChild(monthDetails);
+});
+</script>
+</div>
+</body>
+</html>
